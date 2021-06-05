@@ -1,0 +1,113 @@
+{% extends "resources/base.html" %}
+
+
+{% load static %}
+
+{% block add_css %}
+<link rel="stylesheet" href="{%static 'css/profile.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="home-banner-area relative">
+    <div class="container">
+      <div
+        class="row fullscreen d-flex align-items-center justify-content-center"
+      >
+        <div class="banner-content col-lg-8 col-md-12" style="margin: 0;">
+          <h1 class="wow fadeIn" data-wow-duration="4s">
+            {{ user.get_full_name }}
+          </h1>
+          <table class="text-white d-flex justify-content-center">
+              <tr>
+                  <th>Username</th>
+                  <td>{{user.get_username}}</td>
+              </tr>
+              <tr>
+                  <th>Email</th>
+                  <td>{{user.email}}</td>
+              </tr>
+          </table>
+
+          <div class="courses pt-20">
+            <a href="{% url 'change_password'%}" data-wow-duration="1s" data-wow-delay=".3s" class="primary-btn transparent mr-10 mb-10 wow fadeInDown" style="font-size: 16px;
+            border: 2px solid white;
+            color: black;
+            background-color: white;
+            border-radius: 2px;">
+                Change Password</a>
+
+                <a href="{% url 'request_form' %}" data-wow-duration="1s" data-wow-delay=".3s" class="primary-btn transparent mr-10 mb-10 wow fadeInDown" style="font-size: 16px;
+                border: 2px solid white;
+                color: black;
+                background-color: white;
+                border-radius: 2px;">
+                    Request for new topic</a>
+    
+            
+            </div>
+
+          <!-- <p class="text-white">
+            Fullfill your desire to learn new things <br>
+            You will find all learning material at one place 
+          </p> -->
+        </div>
+      </div>
+    </div>
+    <div class="rocket-img">
+      <img src="{% static 'img/rocket.png' %}" alt="" />
+    </div>
+  </section>
+
+
+<section class="section-gap">
+
+  <div class="container rounded bg-white ">
+    <div class="h2 font-weight-bold d-flex justify-content-center">Requests</div>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Topic</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+
+              {% for request in requests %}
+              <tr class="bg-blue">
+                <td class="pt-2"> 
+                    <div class="pl-lg-5 pl-md-3 pl-1 name">{{request.newResourceTitle }}</div>
+                </td>
+                {% if request.status == "A"%}
+                <td class="pt-3"><span class="fa fa-check pl-3"></span></td>
+                {% elif request.status == "P" %}
+                <td class="pt-3"><span class="fa fa-minus pl-3"></span></td>
+                {% else %}
+                <td class="pt-3"><span class="fa fa-times-circle pl-3"></span></td>
+                {% endif %}
+
+                
+                
+                
+            </tr>
+            <tr id="spacing-row">
+                <td></td>
+            </tr>
+              {% endfor %}
+
+                
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+</section>
+
+
+  {% endblock %}

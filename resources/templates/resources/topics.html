@@ -1,0 +1,68 @@
+{% extends "resources/base.html" %}
+{% load static %}
+{% load cloudinary %}      
+{% cloudinary Topic.pic format="jpg" width=120 height=80 crop="fill" %}
+
+{% block content %}
+
+<section class="home-banner-area relative">
+    <div class="container">
+      <div
+        class="row fullscreen d-flex align-items-center justify-content-center"
+      >
+        <div class="banner-content col-lg-8 col-md-12">
+          <h1 class="wow fadeIn" data-wow-duration="4s">
+            TOPICS
+          </h1>
+          <p class="text-white">
+            Fullfill your desire to learn new things <br>
+            You will find all learning material at one place 
+          </p>
+          <div class="input-wrap">
+            <form action="{% url 'search'%}" class="form-box d-flex justify-content-between" method="POST">
+              {% csrf_token %}
+              <input type="text" placeholder="Search Topic" class="form-control" name="searchedTopic" />
+              <button type="submit" class="btn search-btn">Search</button>
+            </form>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <div class="rocket-img">
+      <img src="{% static 'img/rocket.png' %}" alt="" />
+    </div>
+  </section>
+
+<section class="section-gap">
+    <div class='container'>
+        <div class='row'>
+            {% for topic in topics %}
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                  <a href="/topics/{{topic.id}}">
+                      <img class="card-img-top" height="148px" src="{{ topic.pic.url }}" alt="Image">
+                    </a>
+                  <div class="card-body">
+                    <h4 class="card-title">
+                      <a href="/topics/{{topic.id}}">{{ topic.title }}</a>
+                    </h4>
+                    <p class="card-text">
+                        {{topic.description}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+            
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+{% endblock %}

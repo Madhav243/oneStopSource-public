@@ -1,0 +1,55 @@
+{% extends "resources/base.html" %}
+
+
+{% load static %}
+
+{% block add_css %}
+<link rel="stylesheet" href="{%static 'css/registration.css'%}"/>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row flex-column">
+        <div class="logo">
+            <a href="/"><img src="{% static 'img/logo.png' %}" alt="" title=""/></a>
+        </div>
+      <div class="col-lg-10 col-xl-6 mx-auto">
+        <div class="card card-signin flex-row my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Request Form</h5>
+            
+            <form class="form-signin" method="POST" action="" >
+              {% csrf_token %}
+              <div class="form-label-group">
+                <input type="text" id="newTopic" class="form-control" name='newTopic' placeholder="New Topic" required autofocus>
+                <label for="newTopic">New Topic</label>
+              </div>
+
+              <div class="form-label-group">
+                <textarea type="text" id="description" class="form-control" name='description' placeholder="Description" rows="4" cols="50" required></textarea>
+                <label for="description">Description</label>
+              </div>
+
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Submit</button>
+              
+            </form>
+          
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  {% if error %}
+  <script>
+    alert('{{ error }}');
+  </script>
+    
+  {%endif%}
+
+
+{% endblock %}

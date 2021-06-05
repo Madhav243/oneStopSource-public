@@ -1,0 +1,76 @@
+{% extends "resources/base.html" %}
+
+
+{% load static %}
+
+{% block add_css %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<section class="home-banner-area relative">
+    <div class="container">
+      <div
+        class="row fullscreen d-flex align-items-center justify-content-center"
+      >
+        <div class="banner-content col-lg-8 col-md-12">
+          <h1 class="wow fadeIn" data-wow-duration="4s">
+              Search Results for <br>
+            <em>{{ topic }}</em>
+            :
+          </h1>
+          
+          
+        </div>
+      </div>
+    </div>
+    <div class="rocket-img">
+      <img src="{% static 'img/rocket.png' %}" alt="" />
+    </div>
+  </section>
+
+<section class="section-gap">
+    <div class='container'>
+        {% if topics %}
+        <div class='row'>
+            
+                {% for topic in topics %}
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="card h-100">
+                    <a href="/topics/{{topic.id}}">
+                        <img class="card-img-top" height="148px" src="{{ topic.pic.url }}" alt="Image">
+                        </a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                        <a href="/topics/{{topic.id}}">{{ topic.title }}</a>
+                        </h4>
+                        <p class="card-text">
+                            {{topic.description}}
+                        </p>
+                    </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+                <h1>No Results Found</h1>
+                
+                <p>Request your topic in profile section</p>
+
+
+            {% endif %}
+
+            
+            
+
+
+        
+
+    </div>
+
+</section>
+
+
+{% endblock %}

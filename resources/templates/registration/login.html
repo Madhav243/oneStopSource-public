@@ -1,0 +1,76 @@
+{%load static %}
+{% load socialaccount %}
+<!DOCTYPE html>
+
+<html lang="zxx" class="no-js">
+  {% load pwa %}
+  {% progressive_web_app_meta %}
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="shortcut icon" href="{% static 'img/fav.png' %}" />
+    <meta charset="UTF-8" />
+
+    <title>OneStopSource</title>
+    
+    <link rel="stylesheet" href="{%static 'css/bootstrap.css' %}" />
+    <link rel="stylesheet" href="{%static 'css/font-awesome.min.css' %}" />
+    <link rel="stylesheet" href="{%static 'css/registration.css'%}"/>
+    <script src="https://kit.fontawesome.com/ba54f1c27c.js" crossorigin="anonymous"></script>
+    
+</head>
+
+<body>
+    
+    <div class="container">
+        <div class="row flex-column">
+            <div class="logo">
+                <a href="/"><img src="{% static 'img/logo.png' %}" alt="" title=""/></a>
+            </div>
+          <div class="col-lg-10 col-xl-6 mx-auto">
+            <div class="card card-signin flex-row my-5">
+              <div class="card-body">
+                <h5 class="card-title text-center">Login</h5>
+                <form class="form-signin" method="POST">
+                  {% csrf_token %}
+                  
+    
+                  <div class="form-label-group">
+                    <input type="text" id="inputEmail" class="form-control" name='username' placeholder="Username" required autofocus>
+                    <label for="inputEmail">Username</label>
+                  </div>
+    
+                  <div class="form-label-group">
+                    <input type="password" id="inputPassword" class="form-control" name='password' placeholder="Password" required>
+                    <label for="inputPassword">Password</label>
+                  </div>
+    
+                  <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Login</button>
+                  <div class="d-block text-center mt-2">
+                      Don't have an account ? 
+                    <a  href="/auth/signup">Register here !</a>
+                  </div>
+                  
+                  <hr class="my-4">
+                  <button class="btn btn-lg btn-google btn-block text-uppercase" >
+                      <i class="fab fa-google mr-2"></i> <a style="color: white;" href="{% provider_login_url 'google' %}">Signin With Google</a></button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+
+      {% if error %}
+      <script>
+        alert('{{ error }}');
+      </script>
+        
+      {%endif%}
+
+    <script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
+    <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+</body>
+</html>
+
