@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-h8swb-v1&mmu))3%if)()b=77%@x1$0*anv#!v1yjcn%z8)rdq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['onestopsource.herokuapp.com/']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -57,7 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'oneStopSource.urls'
@@ -140,13 +140,12 @@ USE_TZ = True
 PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR,'resources','static','js','serviceworker.js')
 # set STATIC_ROOT while depolyment 
 # py manage.py collectstatic    while doing depolyment when no static change will happen
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+#STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 STATIC_URL = '/resources/static/'
 STATICFILES_DIRS= [
     os.path.join(BASE_DIR,'resources','static')
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 #While deployment we have to make changes for google oauth also 
 #Google console redirect url 
@@ -226,8 +225,3 @@ PWA_APP_LANG = 'en-US'
 
 
 
-
-
-import dj_database_url 
-prod_db  =  dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(prod_db)
