@@ -83,9 +83,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'oneStopSource.wsgi.application'
 cloudinary.config( 
-  cloud_name='madhav098',
-api_key='983722728548559',
-api_secret='xh5f74XHSHC5chVnIEr6xEzf1Kw' 
+  cloud_name='*****',
+api_key='**********',
+api_secret='**************' 
 )
 
 # Database
@@ -188,8 +188,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'assignmentsolver500@gmail.com'
-EMAIL_HOST_PASSWORD = 'Madhav@123'
+EMAIL_HOST_USER = '*******************'
+EMAIL_HOST_PASSWORD = '************'
 
 
 
