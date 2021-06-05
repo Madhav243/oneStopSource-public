@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-h8swb-v1&mmu))3%if)()b=77%@x1$0*anv#!v1yjcn%z8)rdq
 
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['onestopsource.herokuapp.com','127.0.0.1']
 
 
 # Application definition
