@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-h8swb-v1&mmu))3%if)()b=77%@x1$0*anv#!v1yjcn%z8)rdq
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['onestopsource.herokuapp.com','127.0.0.1']
 
@@ -205,21 +205,21 @@ PWA_APP_STATUS_BAR_COLOR = 'default'
 PWA_APP_ICONS = [
 	{
         # 'src':os.path.join(BASE_DIR,'resources/static/img/icon.png'),
-		'src': '/static/img/icon.png',
+		'src': '/resources/static/img/icon.png',
 		'sizes': '160x160'
 	}
 ]
 PWA_APP_ICONS_APPLE = [
 	{
         # 'src':os.path.join(BASE_DIR,'resources/static/img/icon.png'),
-		'src': '/static/img/icon.png',
+		'src': '/resources/static/img/icon.png',
 		'sizes': '160x160'
 	}
 ]
 PWA_APP_SPLASH_SCREEN = [
 	{
         # 'src':os.path.join(BASE_DIR,'resources/static/img/icon.png'),
-		'src': '/static/img/icon.png',
+		'src': '/resources/static/img/icon.png',
 		'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
 	}
 ]
