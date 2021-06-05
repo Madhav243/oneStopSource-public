@@ -59,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     
 ]
 
@@ -142,7 +143,7 @@ USE_TZ = True
 PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR,'resources','static','js','serviceworker.js')
 # set STATIC_ROOT while depolyment 
 # py manage.py collectstatic    while doing depolyment when no static change will happen
-#STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 STATIC_URL = '/resources/static/'
 STATICFILES_DIRS= [
     os.path.join(BASE_DIR,'resources','static')
