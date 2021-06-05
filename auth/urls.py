@@ -16,6 +16,3 @@ urlpatterns=[
 
     path('change-password/done',auth_views.PasswordChangeDoneView.as_view(template_name='resources/password_change_done.html')),
 ]
-#client id 280146119716-jbsnumrt57bvovingoulam4t4m5mb2o6.apps.googleusercontent.com
-
-#client secret r67fY8nacAy5Uys96hUkHT7w
